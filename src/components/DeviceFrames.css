@@ -1,0 +1,1050 @@
+/* ==================== DEVICE SHARED ==================== */
+.device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.device-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* --- Screen Glare (shared) --- */
+.screen-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.06) 35%,
+      transparent 55%
+    ),
+    linear-gradient(
+      140deg,
+      transparent 40%,
+      rgba(255,255,255,0.04) 50%,
+      rgba(255,255,255,0.08) 55%,
+      transparent 65%
+    );
+}
+[data-theme="dark"] .screen-glare {
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255,255,255,0.08) 0%,
+      rgba(255,255,255,0.03) 35%,
+      transparent 55%
+    ),
+    linear-gradient(
+      140deg,
+      transparent 40%,
+      rgba(255,255,255,0.02) 50%,
+      rgba(255,255,255,0.04) 55%,
+      transparent 65%
+    );
+}
+
+/* ==================== IPHONE ==================== */
+.iphone-body {
+  transform: rotateY(6deg) rotateX(2deg);
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.iphone-body:hover {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+.iphone-frame {
+  width: 220px;
+  height: 440px;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--device-bezel) 88%, #444 12%) 0%,
+      var(--device-bezel) 50%,
+      color-mix(in srgb, var(--device-bezel) 92%, #000 8%) 100%
+    );
+  border-radius: 32px;
+  padding: 5px;
+  position: relative;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.12),
+    0 8px 30px rgba(0,0,0,0.16),
+    0 20px 50px rgba(0,0,0,0.12),
+    0 40px 80px rgba(0,0,0,0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.2);
+}
+
+[data-theme="dark"] .iphone-frame {
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.35),
+    0 8px 30px rgba(0,0,0,0.40),
+    0 20px 50px rgba(0,0,0,0.30),
+    0 40px 80px rgba(0,0,0,0.20),
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+/* Side buttons (volume + power) */
+.iphone-frame::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 80px;
+  width: 2px;
+  height: 24px;
+  background: color-mix(in srgb, var(--device-bezel) 70%, #000 30%);
+  border-radius: 2px 0 0 2px;
+  box-shadow:
+    0 34px 0 color-mix(in srgb, var(--device-bezel) 70%, #000 30%),
+    0 34px 0 color-mix(in srgb, var(--device-bezel) 70%, #000 30%);
+}
+.iphone-frame::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 100px;
+  width: 2px;
+  height: 40px;
+  background: color-mix(in srgb, var(--device-bezel) 70%, #000 30%);
+  border-radius: 0 2px 2px 0;
+}
+
+.iphone-dynamic-island {
+  width: 60px;
+  height: 16px;
+  background: #000;
+  border-radius: 10px;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--app-bg);
+  border-radius: 27px;
+  overflow: hidden;
+  position: relative;
+}
+
+.iphone-bar {
+  width: 100px;
+  height: 4px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.3;
+}
+
+/* ==================== ANDROID ==================== */
+.android-frame {
+  width: 215px;
+  height: 440px;
+  background: var(--device-frame);
+  border-radius: 22px;
+  padding: 6px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.android-camera {
+  width: 10px;
+  height: 10px;
+  background: #1a1a2e;
+  border-radius: 50%;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.android-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--app-bg);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.android-nav {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 10;
+}
+
+.android-nav span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  opacity: 0.3;
+}
+.android-nav span:nth-child(1) { border: 1.5px solid var(--text-muted); border-radius: 1px; }
+.android-nav span:nth-child(2) { border: 1.5px solid var(--text-muted); border-radius: 50%; }
+.android-nav span:nth-child(3) {
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid var(--text-muted);
+  opacity: 0.3;
+}
+
+/* ==================== MACBOOK ==================== */
+.macbook-body {
+  transform: rotateY(-6deg) rotateX(2deg);
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.25));
+}
+.macbook-body:hover {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+[data-theme="dark"] .macbook-body {
+  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.50));
+}
+
+.macbook-frame {
+  width: 480px;
+  background:
+    linear-gradient(
+      170deg,
+      color-mix(in srgb, var(--device-bezel) 88%, #444 12%) 0%,
+      var(--device-bezel) 40%,
+      color-mix(in srgb, var(--device-bezel) 92%, #000 8%) 100%
+    );
+  border-radius: 12px 12px 0 0;
+  padding: 0;
+  overflow: hidden;
+  box-shadow:
+    -5px 0 0 0 color-mix(in srgb, var(--device-bezel) 72%, #444 28%),
+    0 2px 6px rgba(0,0,0,0.12),
+    inset 0 0 0 1px rgba(255,255,255,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+[data-theme="dark"] .macbook-frame {
+  box-shadow:
+    -5px 0 0 0 color-mix(in srgb, var(--device-bezel) 85%, #111 15%),
+    0 2px 6px rgba(0,0,0,0.30),
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.macbook-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--device-bezel) 85%, #333 15%) 0%,
+      var(--device-bezel) 100%
+    );
+  gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.macbook-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #28c840; }
+
+.macbook-url {
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+}
+
+.macbook-screen {
+  width: 100%;
+  height: 300px;
+  background: var(--app-bg);
+  overflow: hidden;
+  position: relative;
+}
+
+.macbook-hinge {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--device-frame) 60%, #000 40%) 0%,
+    color-mix(in srgb, var(--device-frame) 80%, #000 20%) 40%,
+    color-mix(in srgb, var(--device-frame) 75%, #000 25%) 60%,
+    color-mix(in srgb, var(--device-frame) 60%, #000 40%) 100%
+  );
+  box-shadow: -5px 0 0 0 color-mix(in srgb, var(--device-frame) 55%, #000 45%);
+}
+
+.macbook-base {
+  width: 540px;
+  height: 14px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--device-frame) 96%, #fff 4%) 0%,
+      var(--device-frame) 40%,
+      color-mix(in srgb, var(--device-frame) 92%, #000 8%) 100%
+    );
+  border-radius: 0 0 6px 6px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+/* Left side edge of base with USB-C port indicators */
+.macbook-base::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 5px;
+  height: 100%;
+  background:
+    linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--device-frame) 85%, #000 15%) 0%,
+      color-mix(in srgb, var(--device-frame) 85%, #000 15%) 12%,
+      #666 12%,
+      #666 38%,
+      color-mix(in srgb, var(--device-frame) 90%, #fff 10%) 38%,
+      color-mix(in srgb, var(--device-frame) 90%, #fff 10%) 62%,
+      #666 62%,
+      #666 88%,
+      color-mix(in srgb, var(--device-frame) 85%, #000 15%) 88%,
+      color-mix(in srgb, var(--device-frame) 85%, #000 15%) 100%
+    );
+  border-radius: 0 0 0 3px;
+}
+[data-theme="dark"] .macbook-base::before {
+  background:
+    linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--device-frame) 75%, #000 25%) 0%,
+      color-mix(in srgb, var(--device-frame) 75%, #000 25%) 12%,
+      #333 12%,
+      #333 38%,
+      color-mix(in srgb, var(--device-frame) 80%, #000 20%) 38%,
+      color-mix(in srgb, var(--device-frame) 80%, #000 20%) 62%,
+      #333 62%,
+      #333 88%,
+      color-mix(in srgb, var(--device-frame) 75%, #000 25%) 88%,
+      color-mix(in srgb, var(--device-frame) 75%, #000 25%) 100%
+    );
+}
+
+.macbook-notch {
+  width: 60px;
+  height: 4px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 0 0 4px 4px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+[data-theme="dark"] .macbook-notch {
+  background: rgba(0,0,0,0.20);
+}
+
+/* ==================== MOBILE APP MOCKUP ==================== */
+.mock-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.65rem;
+  color: var(--text);
+  background: var(--app-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.mock-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.mock-statusbar-icons { display: flex; gap: 4px; color: var(--text); }
+
+.mock-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 10px;
+}
+.mock-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+.mock-greeting { color: var(--text-muted); font-size: 0.5rem; }
+.mock-username { font-weight: 700; font-size: 0.7rem; }
+.mock-notif {
+  margin-left: auto;
+  position: relative;
+  background: var(--app-accent);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text);
+}
+.mock-notif-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 14px;
+  height: 14px;
+  background: #ef4444;
+  border-radius: 50%;
+  color: white;
+  font-size: 0.45rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mock-content {
+  flex: 1;
+  padding: 0 14px;
+  overflow-y: auto;
+}
+
+.mock-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.mock-stat {
+  background: var(--app-accent);
+  border-radius: 10px;
+  padding: 8px 4px;
+  text-align: center;
+}
+.mock-stat.accent {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+}
+.mock-stat-value { font-size: 0.8rem; font-weight: 800; }
+.mock-stat-label { font-size: 0.45rem; color: var(--text-muted); margin-top: 2px; }
+.mock-stat.accent .mock-stat-label { color: rgba(255,255,255,0.7); }
+
+.mock-section-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.mock-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--app-accent);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+  flex-wrap: wrap;
+}
+.mock-card:hover { transform: scale(1.02); }
+
+.mock-card-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mock-card-icon.blue { background: var(--primary); }
+.mock-card-icon.green { background: #22c55e; }
+
+.mock-card-body { flex: 1; min-width: 0; }
+.mock-card-title { font-weight: 700; font-size: 0.6rem; }
+.mock-card-sub { font-size: 0.5rem; color: var(--text-muted); }
+
+.mock-progress {
+  width: 100%;
+  height: 3px;
+  background: var(--device-frame);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.mock-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+.mock-check { margin-left: auto; flex-shrink: 0; }
+
+/* Chat */
+.mock-chat-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.mock-chat-messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mock-chat-container .mock-chat-input {
+  margin-top: auto;
+}
+
+.mock-chat-bubble {
+  padding: 6px 10px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  font-size: 0.55rem;
+  max-width: 80%;
+  line-height: 1.4;
+}
+.mock-chat-bubble.them {
+  background: var(--app-accent);
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+.mock-chat-bubble.me {
+  background: var(--primary);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 2px;
+}
+.mock-chat-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--app-accent);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-top: 8px;
+  font-size: 0.5rem;
+  color: var(--text-muted);
+}
+
+/* Tab Bar */
+.mock-tabbar {
+  display: flex;
+  border-top: 1px solid var(--border);
+  padding: 6px 0 10px;
+  background: var(--app-bg);
+}
+.mock-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.45rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.mock-tab.active { color: var(--primary); }
+.mock-tab svg { width: 16px; height: 16px; }
+
+/* Modal */
+.mock-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  animation: fadeIn 0.2s ease;
+  backdrop-filter: blur(2px);
+}
+.mock-modal {
+  width: 85%;
+  background: var(--app-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  animation: fadeUp 0.3s ease;
+}
+.mock-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  font-weight: 700;
+  font-size: 0.65rem;
+  border-bottom: 1px solid var(--border);
+}
+.mock-modal-header button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  line-height: 1;
+}
+.mock-modal-body { padding: 10px 12px; }
+.mock-modal-label { font-weight: 700; font-size: 0.65rem; margin-bottom: 8px; }
+.mock-modal-progress { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.mock-modal-progress .mock-progress { flex: 1; height: 4px; }
+.mock-modal-progress span { font-size: 0.6rem; font-weight: 700; color: var(--primary); }
+.mock-modal-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.mock-modal-stats div strong { display: block; font-size: 0.8rem; color: var(--primary); }
+.mock-modal-stats div span { font-size: 0.45rem; color: var(--text-muted); }
+.mock-modal-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  border: none;
+  font-size: 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.mock-modal-btn:hover { opacity: 0.9; }
+
+/* ==================== WEB APP MOCKUP ==================== */
+.mock-webapp {
+  display: flex;
+  height: 100%;
+  font-size: 0.6rem;
+  color: var(--text);
+}
+
+.mock-sidebar {
+  width: 120px;
+  background: var(--app-sidebar);
+  border-right: 1px solid var(--border);
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.mock-sidebar-logo {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 0.6rem;
+  margin-bottom: 10px;
+}
+
+.mock-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.55rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+.mock-sidebar-item:hover { background: var(--app-accent); color: var(--text); }
+.mock-sidebar-item.active {
+  background: var(--primary);
+  color: white;
+}
+.mock-sidebar-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.mock-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mock-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mock-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--app-accent);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--text-muted);
+  font-size: 0.5rem;
+}
+.mock-topbar-avatar {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 6px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  font-weight: 800;
+}
+
+.mock-dashboard {
+  padding: 10px 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.mock-web-stats { display: flex; gap: 6px; margin-bottom: 10px; }
+.mock-web-stat {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--app-accent);
+  border-radius: 8px;
+  padding: 8px;
+}
+.mock-web-stat-icon {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mock-web-stat-icon.blue { background: var(--primary); }
+.mock-web-stat-icon.green { background: #22c55e; }
+.mock-web-stat-icon.orange { background: #f59e0b; }
+.stat-num { font-size: 0.75rem; font-weight: 800; }
+.stat-lbl { font-size: 0.45rem; color: var(--text-muted); }
+
+/* Chart */
+.mock-chart {
+  background: var(--app-accent);
+  border-radius: 10px;
+  padding: 10px;
+}
+.mock-chart-title { font-size: 0.6rem; font-weight: 700; margin-bottom: 10px; }
+.mock-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 100px;
+}
+.mock-bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  height: 100%;
+  justify-content: flex-end;
+}
+.mock-bar {
+  width: 100%;
+  background: linear-gradient(180deg, var(--primary), var(--primary-light));
+  border-radius: 3px 3px 0 0;
+  transition: height 1s ease;
+  min-height: 4px;
+}
+.mock-bar-col span { font-size: 0.4rem; color: var(--text-muted); }
+
+/* Donut */
+.mock-donut-row { display: flex; gap: 20px; justify-content: center; padding: 10px 0; }
+.mock-donut { width: 70px; height: 70px; position: relative; }
+.mock-donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.mock-donut-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+.mock-donut-label span { font-size: 0.4rem; color: var(--text-muted); font-weight: 500; }
+
+/* Client Row */
+.mock-client-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--app-accent);
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+.mock-client-avatar {
+  width: 24px; height: 24px;
+  background: var(--primary);
+  border-radius: 6px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  font-weight: 700;
+}
+.mock-client-info { flex: 1; }
+.mock-client-name { font-weight: 700; font-size: 0.55rem; }
+.mock-client-role { font-size: 0.45rem; color: var(--text-muted); }
+.mock-client-status {
+  font-size: 0.45rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.mock-client-status.active { background: rgba(34,197,94,0.15); color: #22c55e; }
+.mock-client-status.pending { background: rgba(245,158,11,0.15); color: #f59e0b; }
+
+/* ==================== AI MOCKUP ==================== */
+.mock-ai {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.6rem;
+  color: var(--text);
+  background: var(--app-bg);
+}
+
+.mock-ai-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.mock-ai-logo {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mock-ai-name { font-weight: 700; font-size: 0.65rem; }
+.mock-ai-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.45rem;
+  color: #22c55e;
+}
+.mock-ai-dot {
+  width: 5px; height: 5px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.mock-ai-messages {
+  flex: 1;
+  padding: 10px 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mock-ai-msg {
+  padding: 8px 10px;
+  border-radius: 12px;
+  max-width: 85%;
+  line-height: 1.4;
+  font-size: 0.55rem;
+  animation: fadeUp 0.3s ease;
+}
+.mock-ai-msg.ai {
+  background: var(--app-accent);
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+.mock-ai-msg.user {
+  background: var(--primary);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.mock-typing {
+  display: flex;
+  gap: 3px;
+  padding: 2px 0;
+}
+.mock-typing span {
+  width: 5px; height: 5px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  animation: pulse 1.2s infinite;
+}
+.mock-typing span:nth-child(2) { animation-delay: 0.2s; }
+.mock-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+.mock-ai-msg.analysis {
+  max-width: 95%;
+  background: var(--app-accent);
+  border: 1px solid var(--border);
+}
+.mock-ai-analysis-title {
+  font-weight: 700;
+  font-size: 0.6rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+.mock-ai-metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.mock-ai-metric {
+  background: var(--app-bg);
+  border-radius: 6px;
+  padding: 6px;
+  text-align: center;
+}
+.metric-val { font-size: 0.7rem; font-weight: 800; }
+.metric-val.up { color: #22c55e; }
+.metric-val.down { color: #ef4444; }
+.metric-lbl { font-size: 0.4rem; color: var(--text-muted); }
+.mock-ai-summary {
+  font-size: 0.5rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  border-top: 1px solid var(--border);
+  padding-top: 6px;
+}
+
+.mock-ai-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.5rem;
+  color: var(--text-muted);
+}
+
+/* ==================== RESPONSIVE DEVICES ==================== */
+@media (max-width: 600px) {
+  .macbook-body {
+    transform: rotateY(-3deg) rotateX(1deg);
+  }
+  .iphone-body {
+    transform: rotateY(3deg) rotateX(1deg);
+  }
+  .macbook-frame { width: 320px; }
+  .macbook-base { width: 360px; }
+  .macbook-screen { height: 220px; }
+  .iphone-frame { width: 190px; height: 380px; }
+  .android-frame { width: 185px; height: 380px; }
+}
+
+@media (max-width: 480px) {
+  .macbook-body,
+  .macbook-body:hover,
+  .iphone-body,
+  .iphone-body:hover {
+    transform: none;
+    filter: none;
+  }
+  .macbook-frame {
+    box-shadow:
+      0 2px 6px rgba(0,0,0,0.12),
+      inset 0 0 0 1px rgba(255,255,255,0.10),
+      inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .macbook-hinge {
+    box-shadow: none;
+  }
+  .macbook-base::before {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .macbook-frame { width: 280px; }
+  .macbook-base { width: 310px; }
+  .iphone-frame { width: 170px; height: 350px; }
+  .android-frame { width: 165px; height: 350px; }
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" width="420" height="120">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2E5C"/>
+      <stop offset="100%" stop-color="#1A7AE6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon: Rounded square with R monogram -->
+  <rect x="5" y="10" width="100" height="100" rx="20" fill="url(#logoGrad)"/>
+
+  <!-- R mark in white -->
+  <rect x="29" y="28" width="10" height="54" rx="5" fill="#FFFFFF" opacity="0.85"/>
+  <path d="M34 28 H51 C67 28 67 54 51 54 H34 Z" fill="#FFFFFF" opacity="0.92"/>
+  <path d="M41 58 L47 50 L73 74 L65 82 Z" fill="#FFFFFF"/>
+  <circle cx="49" cy="54" r="6" fill="#1A7AE6"/>
+
+  <!-- Company name -->
+  <text x="125" y="72" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="800" fill="#0A2E5C" letter-spacing="3">RM CONSULT</text>
+
+  <!-- Tagline -->
+  <text x="126" y="95" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#5A6A7A" letter-spacing="4">AI RESEARCH &amp; ENGINEERING</text>
+</svg>

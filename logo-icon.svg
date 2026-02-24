@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!--
+    Icon-only version — for favicon, app icon, social media avatar.
+    R monogram: stem (dark), bowl (mid), leg (bright), node (white).
+  -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2E5C"/>
+      <stop offset="100%" stop-color="#1A7AE6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded-square background -->
+  <rect width="100" height="100" rx="20" fill="url(#bgGrad)"/>
+
+  <!-- R mark in white -->
+  <rect x="24" y="18" width="10" height="54" rx="5" fill="#FFFFFF" opacity="0.85"/>
+  <path d="M29 18 H46 C62 18 62 44 46 44 H29 Z" fill="#FFFFFF" opacity="0.92"/>
+  <path d="M36 48 L42 40 L68 64 L60 72 Z" fill="#FFFFFF"/>
+  <circle cx="44" cy="44" r="6" fill="#1A7AE6"/>
+</svg>

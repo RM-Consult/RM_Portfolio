@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <style>
+      .stamp-text { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+    <linearGradient id="stampGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2E5C"/>
+      <stop offset="100%" stop-color="#1A7AE6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer double-circle border -->
+  <circle cx="150" cy="150" r="140" fill="none" stroke="#0052CC" stroke-width="4"/>
+  <circle cx="150" cy="150" r="130" fill="none" stroke="#0052CC" stroke-width="2"/>
+
+  <!-- Decorative dots -->
+  <circle cx="18" cy="150" r="4" fill="#0052CC"/>
+  <circle cx="282" cy="150" r="4" fill="#0052CC"/>
+  <circle cx="150" cy="18" r="4" fill="#0052CC"/>
+  <circle cx="150" cy="282" r="4" fill="#0052CC"/>
+
+  <!-- Top curved text: RM CONSULT -->
+  <path id="topArc" d="M 45 150 A 105 105 0 0 1 255 150" fill="none"/>
+  <text class="stamp-text" font-size="22" font-weight="700" fill="#0052CC" letter-spacing="6">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">RM CONSULT</textPath>
+  </text>
+
+  <!-- Bottom curved text: AI RESEARCH & ENGINEERING -->
+  <path id="bottomArc" d="M 255 150 A 105 105 0 0 1 45 150" fill="none"/>
+  <text class="stamp-text" font-size="11" font-weight="600" fill="#0052CC" letter-spacing="3">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">AI RESEARCH &amp; ENGINEERING</textPath>
+  </text>
+
+  <!-- Center: blue gradient circle with white R mark -->
+  <circle cx="150" cy="150" r="55" fill="url(#stampGrad)"/>
+
+  <!-- R mark in white (centered in stamp) -->
+  <rect x="131" y="122" width="8" height="44" rx="4" fill="#FFFFFF" opacity="0.85"/>
+  <path d="M135 122 H149 C161 122 161 143 149 143 H135 Z" fill="#FFFFFF" opacity="0.92"/>
+  <path d="M140 146 L145 140 L166 160 L160 166 Z" fill="#FFFFFF"/>
+  <circle cx="147" cy="143" r="5" fill="#1A7AE6"/>
+</svg>
