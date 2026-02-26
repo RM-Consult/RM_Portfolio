@@ -121,9 +121,9 @@ export default function App() {
         <div className="divider"/>
         <h2 className="section-title">Get in Touch</h2>
         <div className="contact-cards">
-          <a href="mailto:info@rmconsult.com" className="contact-card">
+          <a href="mailto:info@rmconsult.rw" className="contact-card">
             <div className="contact-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-            <div className="contact-info"><div className="contact-label">Email</div><div className="contact-value">info@rmconsult.com</div></div>
+            <div className="contact-info"><div className="contact-label">Email</div><div className="contact-value">info@rmconsult.rw</div></div>
           </a>
         </div>
         <div className="social-links">

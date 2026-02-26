@@ -10,7 +10,7 @@ The site features a glassmorphic design with animated backgrounds, smooth dark/l
 
 ## Tech Stack
 
-- **React** 19 — UI framework
+- **React** 19 - UI framework
 - **Vite** 6 — Build tool & dev server
 - **CSS Variables** — Theming (light/dark mode)
 
